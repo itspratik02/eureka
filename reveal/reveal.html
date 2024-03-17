@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+  box-sizing border-box
+  transition color .25s ease
+
+:root
+  --dark #111
+  --light #fefefe
+  --color var(--dark)
+  --bg var(--light)
+
+  @media (prefers-color-scheme: dark)
+    --color var(--light)
+    --bg var(--dark)
+
+body
+  background-color var(--bg)
+  display flex
+  align-items center
+  justify-content center
+  min-height 100vh
+  font-size 3.5rem
+  font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-weight bold
+
+p
+  max-width 300px
+
+  &[data-scroll='in']
+    [data-char]:after
+      animation-name glitch-switch
+
+.reveal--2 [data-char]:after
+  animation-iteration-count var(--count)
+
+p:nth-of-type(1)
+  position absolute
+  opacity 0
+
+.word
+  position relative
+  display inline-block
+
+[data-char]
+  color transparent
+  position relative
+
+  &:after
+    --txt attr(data-char)
+    animation-duration .2s
+    animation-delay .5s
+    animation-timing-function steps(1)
+    animation-fill-mode backwards
+    content var(--txt)
+    color var(--color)
+    position absolute
+    left 0
+    top 0
+
+@keyframes glitch-switch{
+  0%
+    content var(--char-0)
+  10%
+    content var(--char-1)
+  20%
+    content var(--char-2)
+  30%
+    content var(--char-3)
+  40%
+    content var(--char-4)
+  50%
+    content var(--char-5)
+  60%
+    content var(--char-6)
+  70%
+    content var(--char-7)
+  80%
+    content var(--char-8)
+  90%
+    content var(--char-9)
+  100%
+    content var(--txt)
+
+}
+
+/**
+ * Themeing
+*/
+.page{
+  align-items center
+  display flex
+  height 100vh
+  justify-content center
+  position relative
+  scroll-snap-align center
+  width 100vw
+}
+.container{
+  height 100vh
+  overflow auto
+  overflow-x hidden
+  scroll-snap-type y mandatory
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <p data-scroll="in">Random iteration count</p>
+        <p class="reveal--2 words chars splitting" aria-hidden="true" data-scroll="in" data-splitting="" style="--word-total:3; --char-total:20;"><span class="word" data-word="Random" style="--word-index:0;"><span class="char" data-char="R" style="--char-index:0; --count:1; --char-0:&quot;≥&quot;; --char-1:&quot;¶&quot;; --char-2:&quot;/&quot;; --char-3:&quot;˚&quot;; --char-4:&quot;░&quot;; --char-5:&quot;≤&quot;; --char-6:&quot;¢&quot;; --char-7:&quot;•&quot;; --char-8:&quot;≥&quot;; --char-9:&quot;˚&quot;;">R</span><span class="char" data-char="a" style="--char-index:1; --count:3; --char-0:&quot;<&quot;; --char-1:&quot;…&quot;; --char-2:&quot;–&quot;; --char-3:&quot;`&quot;; --char-4:&quot;¶&quot;; --char-5:&quot;ƒ&quot;; --char-6:&quot;•&quot;; --char-7:&quot;?&quot;; --char-8:&quot;˜&quot;; --char-9:&quot;˜&quot;;">a</span><span class="char" data-char="n" style="--char-index:2; --count:1; --char-0:&quot;░&quot;; --char-1:&quot;æ&quot;; --char-2:&quot;≥&quot;; --char-3:&quot;å&quot;; --char-4:&quot;÷&quot;; --char-5:&quot;–&quot;; --char-6:&quot;∫&quot;; --char-7:&quot;µ&quot;; --char-8:&quot;å&quot;; --char-9:&quot;▒&quot;;">n</span><span class="char" data-char="d" style="--char-index:3; --count:4; --char-0:&quot;≈&quot;; --char-1:&quot;¬&quot;; --char-2:&quot;<&quot;; --char-3:&quot;…&quot;; --char-4:&quot;∞&quot;; --char-5:&quot;/&quot;; --char-6:&quot;?&quot;; --char-7:&quot;˙&quot;; --char-8:&quot;ß&quot;; --char-9:&quot;≈&quot;;">d</span><span class="char" data-char="o" style="--char-index:4; --count:4; --char-0:&quot;?&quot;; --char-1:&quot;™&quot;; --char-2:&quot;–&quot;; --char-3:&quot;/&quot;; --char-4:&quot;˚&quot;; --char-5:&quot;▒&quot;; --char-6:&quot;˜&quot;; --char-7:&quot;?&quot;; --char-8:&quot;░&quot;; --char-9:&quot;÷&quot;;">o</span><span class="char" data-char="m" style="--char-index:5; --count:4; --char-0:&quot;∆&quot;; --char-1:&quot;§&quot;; --char-2:&quot;ç&quot;; --char-3:&quot;∫&quot;; --char-4:&quot;µ&quot;; --char-5:&quot;™&quot;; --char-6:&quot;`&quot;; --char-7:&quot;§&quot;; --char-8:&quot;˙&quot;; --char-9:&quot;▓&quot;;">m</span></span><span class="whitespace"> </span><span class="word" data-word="iteration" style="--word-index:1;"><span class="char" data-char="i" style="--char-index:6; --count:3; --char-0:&quot;∆&quot;; --char-1:&quot;∂&quot;; --char-2:&quot;?&quot;; --char-3:&quot;¶&quot;; --char-4:&quot;░&quot;; --char-5:&quot;…&quot;; --char-6:&quot;`&quot;; --char-7:&quot;≤&quot;; --char-8:&quot;∆&quot;; --char-9:&quot;≠&quot;;">i</span><span class="char" data-char="t" style="--char-index:7; --count:5; --char-0:&quot;˚&quot;; --char-1:&quot;∂&quot;; --char-2:&quot;¶&quot;; --char-3:&quot;˚&quot;; --char-4:&quot;>&quot;; --char-5:&quot;•&quot;; --char-6:&quot;`&quot;; --char-7:&quot;`&quot;; --char-8:&quot;>&quot;; --char-9:&quot;░&quot;;">t</span><span class="char" data-char="e" style="--char-index:8; --count:3; --char-0:&quot;•&quot;; --char-1:&quot;≥&quot;; --char-2:&quot;•&quot;; --char-3:&quot;∫&quot;; --char-4:&quot;•&quot;; --char-5:&quot;/&quot;; --char-6:&quot;∆&quot;; --char-7:&quot;∆&quot;; --char-8:&quot;∞&quot;; --char-9:&quot;µ&quot;;">e</span><span class="char" data-char="r" style="--char-index:9; --count:3; --char-0:&quot;¶&quot;; --char-1:&quot;ç&quot;; --char-2:&quot;>&quot;; --char-3:&quot;å&quot;; --char-4:&quot;¬&quot;; --char-5:&quot;≤&quot;; --char-6:&quot;∞&quot;; --char-7:&quot;≥&quot;; --char-8:&quot;˚&quot;; --char-9:&quot;>&quot;;">r</span><span class="char" data-char="a" style="--char-index:10; --count:4; --char-0:&quot;ª&quot;; --char-1:&quot;™&quot;; --char-2:&quot;`&quot;; --char-3:&quot;…&quot;; --char-4:&quot;<&quot;; --char-5:&quot;√&quot;; --char-6:&quot;≥&quot;; --char-7:&quot;≠&quot;; --char-8:&quot;÷&quot;; --char-9:&quot;å&quot;;">a</span><span class="char" data-char="t" style="--char-index:11; --count:5; --char-0:&quot;¡&quot;; --char-1:&quot;≠&quot;; --char-2:&quot;˜&quot;; --char-3:&quot;æ&quot;; --char-4:&quot;…&quot;; --char-5:&quot;ƒ&quot;; --char-6:&quot;░&quot;; --char-7:&quot;ƒ&quot;; --char-8:&quot;√&quot;; --char-9:&quot;≥&quot;;">t</span><span class="char" data-char="i" style="--char-index:12; --count:3; --char-0:&quot;≈&quot;; --char-1:&quot;æ&quot;; --char-2:&quot;¬&quot;; --char-3:&quot;å&quot;; --char-4:&quot;¡&quot;; --char-5:&quot;▓&quot;; --char-6:&quot;÷&quot;; --char-7:&quot;≥&quot;; --char-8:&quot;░&quot;; --char-9:&quot;≈&quot;;">i</span><span class="char" data-char="o" style="--char-index:13; --count:3; --char-0:&quot;>&quot;; --char-1:&quot;™&quot;; --char-2:&quot;∂&quot;; --char-3:&quot;∫&quot;; --char-4:&quot;æ&quot;; --char-5:&quot;░&quot;; --char-6:&quot;§&quot;; --char-7:&quot;•&quot;; --char-8:&quot;©&quot;; --char-9:&quot;©&quot;;">o</span><span class="char" data-char="n" style="--char-index:14; --count:5; --char-0:&quot;µ&quot;; --char-1:&quot;µ&quot;; --char-2:&quot;√&quot;; --char-3:&quot;º&quot;; --char-4:&quot;<&quot;; --char-5:&quot;ƒ&quot;; --char-6:&quot;∆&quot;; --char-7:&quot;™&quot;; --char-8:&quot;÷&quot;; --char-9:&quot;å&quot;;">n</span></span><span class="whitespace"> </span><span class="word" data-word="count" style="--word-index:2;"><span class="char" data-char="c" style="--char-index:15; --count:2; --char-0:&quot;∞&quot;; --char-1:&quot;ç&quot;; --char-2:&quot;▓&quot;; --char-3:&quot;˚&quot;; --char-4:&quot;?&quot;; --char-5:&quot;∂&quot;; --char-6:&quot;/&quot;; --char-7:&quot;`&quot;; --char-8:&quot;£&quot;; --char-9:&quot;ß&quot;;">c</span><span class="char" data-char="o" style="--char-index:16; --count:3; --char-0:&quot;?&quot;; --char-1:&quot;>&quot;; --char-2:&quot;ç&quot;; --char-3:&quot;∞&quot;; --char-4:&quot;?&quot;; --char-5:&quot;…&quot;; --char-6:&quot;˙&quot;; --char-7:&quot;▒&quot;; --char-8:&quot;ç&quot;; --char-9:&quot;æ&quot;;">o</span><span class="char" data-char="u" style="--char-index:17; --count:5; --char-0:&quot;≠&quot;; --char-1:&quot;▒&quot;; --char-2:&quot;∫&quot;; --char-3:&quot;§&quot;; --char-4:&quot;∂&quot;; --char-5:&quot;©&quot;; --char-6:&quot;˙&quot;; --char-7:&quot;░&quot;; --char-8:&quot;<&quot;; --char-9:&quot;>&quot;;">u</span><span class="char" data-char="n" style="--char-index:18; --count:3; --char-0:&quot;∆&quot;; --char-1:&quot;¡&quot;; --char-2:&quot;¢&quot;; --char-3:&quot;<&quot;; --char-4:&quot;¡&quot;; --char-5:&quot;ª&quot;; --char-6:&quot;µ&quot;; --char-7:&quot;>&quot;; --char-8:&quot;¬&quot;; --char-9:&quot;˚&quot;;">n</span><span class="char" data-char="t" style="--char-index:19; --count:2; --char-0:&quot;∫&quot;; --char-1:&quot;¡&quot;; --char-2:&quot;–&quot;; --char-3:&quot;÷&quot;; --char-4:&quot;ß&quot;; --char-5:&quot;<&quot;; --char-6:&quot;√&quot;; --char-7:&quot;∫&quot;; --char-8:&quot;ƒ&quot;; --char-9:&quot;ß&quot;;">t</span></span></p>
+      </div>
+</body>
+</html>
